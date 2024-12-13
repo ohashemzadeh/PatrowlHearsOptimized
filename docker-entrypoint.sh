@@ -75,4 +75,4 @@ supervisord -c var/etc/supervisord.conf
 
 # Start server
 echo "[+] Starting server"
-gunicorn -b $APP_HOST:$APP_PORT backend_app.wsgi:application --timeout 300
+gunicorn -b $APP_HOST:$APP_PORT backend_app.wsgi:application --timeout 300 --workers 8 --threads 2

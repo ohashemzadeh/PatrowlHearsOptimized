@@ -116,7 +116,7 @@ supervisorctl -s http://127.0.0.1:9002 status all
 
 # Start backend server
 echo "[+] Starting backend server (Gunicorn) on $APP_HOST:$APP_PORT"
-gunicorn -b $APP_HOST:$APP_PORT backend_app.wsgi:application --timeout 300 --workers 2 --daemon
+gunicorn -b $APP_HOST:$APP_PORT backend_app.wsgi:application --timeout 300 --workers 8 --threads 2 --daemon
 
 # Start WEB server
 echo "[+] Starting WEB server (nginx) on $APP_HOST:$WEB_PORT"
